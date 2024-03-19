@@ -34,4 +34,4 @@ jobs:
         run: sam build
 
       - name: Deploy SAM application
-        run: sam deploy --stack-name lanchonete-app --capabilities CAPABILITY_IAM
+        run: sam deploy --stack-name lanchonete-app --capabilities CAPABILITY_IAM --no-confirm-changeset
