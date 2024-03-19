@@ -14,7 +14,7 @@ Resources:
     Type: AWS::Serverless::Function
     Properties:
       CodeUri: HelloWorldFunction
-      Handler: authCliente.App::handleRequest
+      Handler: authcliente.App::handleRequest
       Runtime: java17
       Architectures:
       - x86_64

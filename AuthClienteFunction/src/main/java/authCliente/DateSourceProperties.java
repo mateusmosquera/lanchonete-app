@@ -9,7 +9,7 @@ public class DateSourceProperties {
 
     public DateSourceProperties() {
         this.host = System.getenv("RDS_HOSTNAME");
-        this.port = Integer.parseInt(System.getenv("RDS_PORT"));
+        this.port = "5432";
         this.dbName = System.getenv("RDS_DB_NAME");
         this.username = System.getenv("RDS_USERNAME");
         this.password = System.getenv("RDS_PASSWORD");

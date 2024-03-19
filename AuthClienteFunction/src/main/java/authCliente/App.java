@@ -35,7 +35,7 @@ public class App implements RequestHandler<APIGatewayProxyRequestEvent, APIGatew
 
             String document = input.getPathParameters().get("document");
 
-            if (!document.isEmpty()){
+            if (document != null){
                 Connection connection = DriverManager.getConnection(db.getJdbcUrl(), db.getUsername(), db.getPassword());
 
                 PreparedStatement statement = connection.prepareStatement("SELECT * FROM clientes where cpf="+ document);
