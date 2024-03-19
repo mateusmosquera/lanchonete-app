@@ -5,9 +5,9 @@ codeuri = "D:\\Projects\\lanchonete-app\\AuthClienteFunction"
 runtime = "java17"
 architecture = "x86_64"
 handler = "authcliente.App::handleRequest"
-source_hash = "d8904e94b104ed65a52aabc63c899dcc8847206e0a1d0572ed5b473e17f11446"
+source_hash = "edb5bf77246bd57809a42c81d3b42bf8c4e135e3230bc063356ae17826280d22"
 manifest_hash = ""
 packagetype = "Zip"
-functions = ["HelloWorldFunction"]
+functions = ["AuthClienteFunction"]
 
 [layer_build_definitions]

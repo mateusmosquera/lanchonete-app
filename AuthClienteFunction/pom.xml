@@ -5,7 +5,7 @@
     <artifactId>LanchoneteApps</artifactId>
     <version>1.0</version>
     <packaging>jar</packaging>
-    <name>A sample Hello World created for SAM CLI.</name>
+    <name>A Lambda lanchonete created for SAM CLI.</name>
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
         <maven.compiler.target>17</maven.compiler.target>

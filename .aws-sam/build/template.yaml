@@ -1,6 +1,6 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
-Description: 'lanchonete-apps
+Description: 'lanchonete-app
 
   Sample SAM Template for lanchonete-apps
 
@@ -10,10 +10,10 @@ Globals:
     Timeout: 20
     MemorySize: 512
 Resources:
-  HelloWorldFunction:
+  AuthClienteFunction:
     Type: AWS::Serverless::Function
     Properties:
-      CodeUri: HelloWorldFunction
+      CodeUri: AuthClienteFunction
       Handler: authcliente.App::handleRequest
       Runtime: java17
       Architectures:
@@ -23,27 +23,27 @@ Resources:
         Variables:
           PARAM1: VALUE
       Events:
-        HelloWorld:
+        Clientes:
           Type: Api
           Properties:
-            Path: /hello
-            Method: get
+            Path: /clientes
+            Method: post
     Metadata:
-      SamResourceId: HelloWorldFunction
+      SamResourceId: AuthClienteFunction
 Outputs:
   AuthClienteApi:
-    Description: API Gateway endpoint URL for Prod stage for Hello World function
+    Description: API Gateway endpoint URL for Prod stage for Clientes function
     Value:
-      Fn::Sub: https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/hello/
+      Fn::Sub: https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/clientes
   AuthClienteFuction:
-    Description: Hello World Lambda Function ARN
+    Description: Clientes Lambda Function ARN
     Value:
       Fn::GetAtt:
       - AuthClienteFunction
       - Arn
   AuthClienteIamRole:
-    Description: Implicit IAM Role created for Hello World function
+    Description: Implicit IAM Role created for Clientes function
     Value:
       Fn::GetAtt:
-      - AuthClienteFunction
+      - AuthClienteFunctionRole
       - Arn
