@@ -1,3 +1,23 @@
 
 R
 "src/main/java/authCliente/App.java,b\8\b876842a0e43d6bda5ad27d5e8dbf18b212ec2a0
+^
+.src/main/java/authCliente/ClienteResponse.java,2\5\2521d52c0c8e7c9c73e1ff0f403d21e1555cf2d4
+B
+LanchoneteApps.iml,0\0\0028d350b799ace1ffb008eab349a3dc81dc7c7d
+?
+AuthCliente.iml,f\a\fa63e1569a5686b98cb621dda2b6d9991b3221a7
+7
+pom.xml,4\4\442292b8a7efeabbe4cc176709b833b1792140ec
+V
+&src/test/java/authCliente/AppTest.java,6\4\64e50bcaa0285399af56da713b696e11d86b0a1a
+c
+3src/main/java/authCliente/DateSourceProperties.java,f\f\ffb5b4d5f6cccbbfe2af078d0918fe02b9f4c365
+d
+4src/main/java/authCliente/ConnectSelectClientes.java,e\9\e9a0c03874c7ac49d8b0644f6c1ebcaeddf952b8
+c
+3src/main/java/authcliente/DateSourceProperties.java,9\5\95af85b4830e51bb8ebc8190f437a6290b8c0245
+V
+&src/test/java/authcliente/AppTest.java,8\f\8f8ba380440e21ac8ecd06850ca411e8349925cc
+R
+"src/main/java/authcliente/App.java,e\2\e27cce759b0279da7f538713436bffff6a64f866

@@ -1,2 +1,6 @@
 
-t	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(о√Чё€€€€€
+°	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(о√Чё€€€€€8‘жи°е1J$75a3600a-350a-44bb-961a-06e06d9e5b96
+Т
+java:S2095)"OUse try-with-resources or close this "PreparedStatement" in a "finally" clause.(ЂЋЇ£8Ёжи°е1J$cd7e8958-c127-4739-a351-c387df5c42f9
+Р
+java:S2095'"HUse try-with-resources or close this "Connection" in a "finally" clause.(Ё–№ ъ€€€€8Ёжи°е1J$eec51475-8d0e-415d-bfbb-7b1c5ccee732
