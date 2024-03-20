@@ -9,12 +9,14 @@ import com.amazonaws.services.lambda.runtime.RequestHandler;
 import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyRequestEvent;
 import com.amazonaws.services.lambda.runtime.events.APIGatewayProxyResponseEvent;
 import gherkin.deps.com.google.gson.Gson;
+import org.apache.http.impl.conn.SystemDefaultRoutePlanner;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -27,8 +29,6 @@ public class App implements RequestHandler<APIGatewayProxyRequestEvent, APIGatew
 
     private static final String USER_POOL_ID = System.getenv("USER_POOL_ID");
     private static final String CLIENT_ID = System.getenv("CLIENT_ID");
-    private static final String CLIENT_SECRET = System.getenv("CLIENT_SECRET");
-
 
     public App() {
         this.db = new DateSourceProperties();
@@ -50,18 +50,21 @@ public class App implements RequestHandler<APIGatewayProxyRequestEvent, APIGatew
             if (document != null){
                 Connection connection = DriverManager.getConnection(db.getJdbcUrl(), db.getUsername(), db.getPassword());
 
-                PreparedStatement statement = connection.prepareStatement("SELECT * FROM clientes where cpf="+ document);
+                PreparedStatement statement = connection.prepareStatement("SELECT * FROM cliente where cpf="+ document);
 
                 ResultSet rs = statement.executeQuery();
 
                 if (rs.next()) {
+
+                    Map<String, String> authParameters = new HashMap<>();
+                    authParameters.put("EMAIL", rs.getString("email"));
 
                     AWSCognitoIdentityProvider cognitoIdentityProvider = AWSCognitoIdentityProviderClientBuilder.defaultClient();
                     AdminInitiateAuthRequest authRequest = new AdminInitiateAuthRequest()
                             .withUserPoolId(USER_POOL_ID)
                             .withClientId(CLIENT_ID)
                             .withAuthFlow("ADMIN_NO_SRP_AUTH")
-                            .withAuthParameters(getAuthParameters());
+                            .withAuthParameters(authParameters);
 
                     AdminInitiateAuthResult authResult = cognitoIdentityProvider.adminInitiateAuth(authRequest);
 
@@ -78,15 +81,9 @@ public class App implements RequestHandler<APIGatewayProxyRequestEvent, APIGatew
 
         } catch (SQLException e) {
             return response
-                    .withBody("{}")
+                    .withBody(Arrays.toString(e.getStackTrace()))
                     .withStatusCode(500);
         }
-    }
-
-    private Map<String, String> getAuthParameters() {
-        Map<String, String> authParameters = new HashMap<>();
-        authParameters.put("CLIENT_SECRET", CLIENT_SECRET);
-        return authParameters;
     }
 
 }
